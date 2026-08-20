@@ -1,6 +1,6 @@
 {
   "name": "com.ktgame.save",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "com.ktgame.save",
   "description": "Save and Load Game Data usage PlayerPrefs Unity API,File",
   "author": {
@@ -9,7 +9,7 @@
     "url": "https://github.com/KhanhTQ-hub"
   },
   "dependencies": {
-    "com.ktgame.save.core": "1.0.3"
+    "com.ktgame.save.core": "1.0.5"
   },
   "publishConfig": {
     "registry": "http://3.25.115.5:4873"
