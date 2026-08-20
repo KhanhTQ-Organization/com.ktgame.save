@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/KhanhTQ-Organization/com.ktgame.save/compare/v1.0.2...v1.0.3) (2026-08-20)
+
+
+### Bug Fixes
+
+* update ([05d4bda](https://github.com/KhanhTQ-Organization/com.ktgame.save/commit/05d4bda936e2c12dd9119b1382707311dca2ba57))
+
 ## [1.0.2](https://github.com/KhanhTQ-Organization/com.ktgame.save/compare/v1.0.1...v1.0.2) (2026-05-06)
 
 
