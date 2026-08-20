@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using com.ktgame.save.core;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -43,12 +43,14 @@ namespace com.ktgame.save.playerprefs
 
 		public UniTask<TData> LoadAsync<TData>(string key)
 		{
-			return UniTask.FromResult(_serializationProvider.Deserialize<TData>(GetBytes(key)));
+			var bytes = GetBytes(key);
+			return _serializationProvider.DeserializeAsync<TData>(bytes);
 		}
 
 		public UniTask<object> LoadAsync(string key, Type dataType)
 		{
-			return UniTask.FromResult(_serializationProvider.Deserialize(GetBytes(key), dataType));
+			var bytes = GetBytes(key);
+			return _serializationProvider.DeserializeAsync(bytes, dataType);
 		}
 
 		public void Copy(string fromKey, string toKey)

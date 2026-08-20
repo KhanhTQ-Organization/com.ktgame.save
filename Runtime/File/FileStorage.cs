@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using com.ktgame.save.core;
 using Cysharp.Threading.Tasks;
@@ -37,32 +37,32 @@ namespace com.ktgame.save.file
 
 		public void Save<TData>(string key, TData data)
 		{
-			Write(_serializationProvider.Serialize(data), GetFilePath(key));
+			Write(_serializationProvider.Serialize(data), key);
 		}
 
 		public async UniTask SaveAsync<TData>(string key, TData data)
 		{
-			await _serializationProvider.SerializeAsync(data).ContinueWith(bytes => WriteAsync(bytes, GetFilePath(key)));
+			await _serializationProvider.SerializeAsync(data).ContinueWith(bytes => WriteAsync(bytes, key));
 		}
 
 		public TData Load<TData>(string key)
 		{
-			return _serializationProvider.Deserialize<TData>(Read(GetFilePath(key)));
+			return _serializationProvider.Deserialize<TData>(Read(key));
 		}
 
 		public object Load(string key, Type dataType)
 		{
-			return _serializationProvider.Deserialize(Read(GetFilePath(key)), dataType);
+			return _serializationProvider.Deserialize(Read(key), dataType);
 		}
 
 		public UniTask<TData> LoadAsync<TData>(string key)
 		{
-			return ReadAsync(GetFilePath(key)).ContinueWith(bytes => _serializationProvider.DeserializeAsync<TData>(bytes));
+			return ReadAsync(key).ContinueWith(bytes => _serializationProvider.DeserializeAsync<TData>(bytes));
 		}
 
 		public UniTask<object> LoadAsync(string key, Type dataType)
 		{
-			return ReadAsync(GetFilePath(key)).ContinueWith(bytes => _serializationProvider.DeserializeAsync(bytes, dataType));
+			return ReadAsync(key).ContinueWith(bytes => _serializationProvider.DeserializeAsync(bytes, dataType));
 		}
 
 		public void Copy(string fromKey, string toKey)
